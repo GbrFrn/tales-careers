@@ -1,0 +1,34 @@
+on:
+  push:
+    branches: [ main ]
+name: 🚀 Deploy Careers on Push
+jobs:
+  blog-deploy:
+    name: 🎉 Deploy Careers
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+        submodules: true
+
+    - name: Use Node.js 18
+      uses: actions/setup-node@v2
+      with:
+        node-version: '18'
+
+    - name: Install Dependencies
+      run: npm install  # Install from the root directory
+
+    - name: 🔨 Build Blog
+      run: npm run build  # Build from the root, not from ./blog
+    
+    - name: 📂 Sync Blog Files
+      uses: SamKirkland/FTP-Deploy-Action@4.2.0
+      with:
+        server: 109.106.248.192
+        username: u427274899.ragnatales.com.br
+        password: ${{ secrets.FTP_PASS }}
+        local-dir: ./dist/  # Output directory specified in astro.config.mjs
+        server-dir: /public_html/careers/  # Deploy to the /blog subdirectory on the server
