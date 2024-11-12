@@ -8,7 +8,8 @@ export function Hero() {
           Junte-se à Nossa Missão
         </h1>
         <p className="text-xl text-slate-600 dark:text-gray-300 max-w-2xl mx-auto">
-          Molde o futuro da infraestrutura de games na Tales Inc., onde inovação encontra paixão.
+          Molde o futuro do mundo dos games na Tales Inc., onde inovação
+          encontra paixão.
         </p>
       </div>
     </div>
