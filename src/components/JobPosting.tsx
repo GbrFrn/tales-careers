@@ -16,7 +16,9 @@ export function JobPosting({ job }: JobPostingProps) {
       <div className="flex items-center space-x-4 mb-8">
         <Network className="h-10 w-10 text-blue-600 dark:text-blue-400" />
         <div>
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-white">{job.title}</h2>
+          <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
+            {job.title}
+          </h2>
           <p className="text-blue-600 dark:text-blue-400">{job.department}</p>
         </div>
       </div>
@@ -28,7 +30,11 @@ export function JobPosting({ job }: JobPostingProps) {
         </div>
         <div className="flex items-center text-slate-600 dark:text-gray-300">
           <Clock className="h-5 w-5 mr-2" />
-          {job.type === 'full-time' ? 'Tempo Integral' : job.type === 'part-time' ? 'Meio Período' : 'Contrato'}
+          {job.type === "full-time"
+            ? "Tempo Integral"
+            : job.type === "part-time"
+            ? "Meio Período"
+            : "Contrato"}
         </div>
       </div>
 
@@ -73,9 +79,16 @@ export function JobPosting({ job }: JobPostingProps) {
           {job.technicalSkills.map((item, index) => {
             const Icon = iconMap[item.icon];
             return (
-              <div key={index} className="bg-slate-50 dark:bg-[#1a2433] rounded-lg p-4 flex items-center space-x-3 border border-slate-200 dark:border-[#2a3544]">
-                {Icon && <Icon className="h-5 w-5 text-blue-600 dark:text-blue-400" />}
-                <span className="text-slate-600 dark:text-gray-300">{item.skill}</span>
+              <div
+                key={index}
+                className="bg-slate-50 dark:bg-[#1a2433] rounded-lg p-4 flex items-center space-x-3 border border-slate-200 dark:border-[#2a3544]"
+              >
+                {Icon && (
+                  <Icon className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                )}
+                <span className="text-slate-600 dark:text-gray-300">
+                  {item.skill}
+                </span>
               </div>
             );
           })}
@@ -98,12 +111,17 @@ export function JobPosting({ job }: JobPostingProps) {
       </div>
 
       <div className="text-center">
-        <button className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-semibold py-4 px-8 rounded-xl transition duration-300 transform hover:scale-105">
-          Candidate-se Agora
-        </button>
+        <a href="mailto:ragnatalesbr@gmail.com?subject=Vaga Engenheiro de Redes Linux&body=Segue em anexo meu currículo">
+          <button className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-semibold py-4 px-8 rounded-xl transition duration-300 transform hover:scale-105">
+            Candidate-se Agora
+          </button>
+        </a>
         <p className="mt-4 text-slate-500 dark:text-gray-400">
-          Envie seu currículo e resumo de experiências para{' '}
-          <a href="mailto:ragnatalesbr@gmail.com" className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300">
+          Envie seu currículo e resumo de experiências para{" "}
+          <a
+            href="mailto:ragnatalesbr@gmail.com"
+            className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+          >
             ragnatalesbr@gmail.com
           </a>
         </p>
